@@ -2,15 +2,17 @@ import QtQuick 2.9
 import QtQuick.Window 2.2
 
 Window {
+    id: windowId
+
     visible: true
     width: 640
     height: 480
     title: qsTr("Game Station")
 
     Rectangle {
-        anchors.top: mainList.bottom
-        height: parent.width
-        width: parent.width
+        anchors.top: windowId.top
+        height: windowId.height
+        width: windowId.width
 
         color: "#009900"
 
@@ -30,14 +32,13 @@ Window {
             id: testComponent
 
             Item {
-                //readonly property string subList: model.subList
-
                 id: rectComponent
-                width: 120
-                height: 100
+
+                width: mainListId.height
+                height: mainListId.height
                 Player {
-                    width: rectComponent.width - 30
-                    height: rectComponent.height - 30
+                    width: rectComponent.width - 10
+                    height: rectComponent.height - 10
                     anchors.centerIn: rectComponent
                     playerName: model.name
                     playerColor: model.color
@@ -46,13 +47,13 @@ Window {
         }
 
         ListView {
-            id: mainList
+            id: mainListId
 
             property int mainCurIdx: 0
 
-            height: parent.height / 4
-            width: parent.width
-            //clip: true
+            height: windowId.height / 5
+            width: windowId.width
+            clip: true
             //focus: true
             orientation: ListView.Horizontal
             model: mainModel

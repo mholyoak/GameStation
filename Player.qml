@@ -1,8 +1,9 @@
 import QtQuick 2.0
 
-Item {
+FocusScope {
     id: playerId
 
+    //anchors.fill: parent
     property string playerName: "Player"
     property string playerColor: "red"
 
@@ -10,9 +11,9 @@ Item {
         id: headId
 
         anchors.top: playerId.top
-        x: (playerId.width / 2) - (playerId.width / 4)
-        width: playerId.width / 2
-        height: width
+        anchors.horizontalCenter: playerId.horizontalCenter
+        width: { console.log("width " + playerId.width); return playerId.width / 3;}
+        height: playerId.width / 3
 
         color: playerColor
         radius: width*0.5
@@ -21,7 +22,8 @@ Item {
     ProgressiveCircle {
         id: bodyId
         anchors.top: headId.bottom
-        size: playerId.width
+        anchors.horizontalCenter: playerId.horizontalCenter
+        size: headId.width * 2
         colorCircle: playerColor
         colorBackground: "transparent"
         showBackground: true
@@ -31,13 +33,17 @@ Item {
     }
 
     Text {
-        y: bodyId.y + (bodyId.height / 2)
-        anchors.left: bodyId.left
-        anchors.right: bodyId.right
+        anchors.left: playerId.left
+        anchors.right: playerId.right
+        anchors.bottom: playerId.bottom
+        height: playerId.width / 3
         font.pointSize: 100
         minimumPointSize: 10
         fontSizeMode: Text.Fit
         color: playerColor
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignBottom
+
         text: playerName
     }
 }

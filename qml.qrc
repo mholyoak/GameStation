@@ -5,5 +5,6 @@
         <file>ProgressiveCircle.qml</file>
         <file>PlayerPanel.qml</file>
         <file>CardPanel.qml</file>
+        <file>Card.qml</file>
     </qresource>
 </RCC>

@@ -5,14 +5,14 @@ FocusScope {
 
     ListModel {
         id: mainModel
-        ListElement { name: "King"; color: "red" }
-        ListElement { name: "McKelle"; color: "blue"  }
-        ListElement { name: "Eric"; color: "black"  }
-        ListElement { name: "Karla"; color: "white"  }
-        ListElement { name: "Fred"; color: "green"  }
-        ListElement { name: "Sue"; color: "purple"  }
-        ListElement { name: "Mark"; color: "pink"  }
-        ListElement { name: "John"; color: "gray"  }
+        ListElement { name: "K"; color: "red" }
+        ListElement { name: "Q"; color: "red"  }
+        ListElement { name: "J"; color: "blue"  }
+        ListElement { name: "A"; color: "blue"  }
+        ListElement { name: "2"; color: "blue"  }
+        ListElement { name: "8"; color: "blue"  }
+        ListElement { name: "3"; color: "pink"  }
+        ListElement { name: "5"; color: "gray"  }
     }
 
     Component {
@@ -23,12 +23,12 @@ FocusScope {
 
             width: mainListId.height
             height: mainListId.height
-            Player {
+            Card {
                 width: rectComponent.width - 10
                 height: rectComponent.height - 10
                 anchors.centerIn: rectComponent
-                playerName: model.name
-                playerColor: model.color
+                cardName: model.name
+                cardColor: model.color
             }
         }
     }

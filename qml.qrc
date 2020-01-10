@@ -3,5 +3,7 @@
         <file>main.qml</file>
         <file>Player.qml</file>
         <file>ProgressiveCircle.qml</file>
+        <file>PlayerPanel.qml</file>
+        <file>CardPanel.qml</file>
     </qresource>
 </RCC>

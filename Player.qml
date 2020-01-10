@@ -12,7 +12,7 @@ FocusScope {
 
         anchors.top: playerId.top
         anchors.horizontalCenter: playerId.horizontalCenter
-        width: { console.log("width " + playerId.width); return playerId.width / 3;}
+        width: playerId.width / 3
         height: playerId.width / 3
 
         color: playerColor

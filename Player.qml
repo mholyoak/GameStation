@@ -1,4 +1,5 @@
 import QtQuick 2.9
+import QtQuick.Controls 2.5
 
 FocusScope {
     id: playerId
@@ -6,6 +7,25 @@ FocusScope {
     //anchors.fill: parent
     property string playerName: "Player"
     property string playerColor: "red"
+    MouseArea {
+        anchors.fill: playerId
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        onClicked: {
+            if (mouse.button === Qt.RightButton)
+                contextMenuId.popup()
+        }
+        onPressAndHold: {
+            //if (mouse.source === Qt.MouseEventNotSynthesized)
+                contextMenuId.popup()
+        }
+
+        Menu {
+            id: contextMenuId
+            MenuItem { text: "Cut" }
+            MenuItem { text: "Copy" }
+            MenuItem { text: "Paste" }
+        }
+    }
 
     Rectangle {
         id: headId

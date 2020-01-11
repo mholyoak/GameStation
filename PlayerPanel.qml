@@ -13,8 +13,8 @@ FocusScope {
 
     ListModel {
         id: mainModel
-        ListElement { name: "Dionne"; color: "red" }
         /*
+        ListElement { name: "Dionne"; color: "red" }
         ListElement { name: "McKelle"; color: "blue"  }
         ListElement { name: "Eric"; color: "black"  }
         ListElement { name: "Karla"; color: "white"  }

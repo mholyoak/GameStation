@@ -25,10 +25,10 @@ Window {
             width: windowId.width
 
             Component.onCompleted: {
-                for (var i = 0; i < 10; i++)
-                {
-                    playerPanelId.addPlayer("TestPlayer", "TestColor");
-                }
+                playerPanelId.addPlayer("Dionne", "red");
+                playerPanelId.addPlayer("McKelle", "blue");
+                playerPanelId.addPlayer("Eric", "black");
+                playerPanelId.addPlayer("Karla", "white");
             }
         }
 

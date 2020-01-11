@@ -3,9 +3,18 @@ import QtQuick 2.9
 FocusScope {
     id: playerPanelId
 
+    signal addPlayer(string playerName, string playerColor)
+
+    onAddPlayer: {
+        console.log("Name: " + playerName + " color: " + playerColor);
+        var newValue = {"name": playerName, "color": playerColor};
+        mainModel.append(newValue);
+    }
+
     ListModel {
         id: mainModel
         ListElement { name: "Dionne"; color: "red" }
+        /*
         ListElement { name: "McKelle"; color: "blue"  }
         ListElement { name: "Eric"; color: "black"  }
         ListElement { name: "Karla"; color: "white"  }
@@ -13,7 +22,12 @@ FocusScope {
         ListElement { name: "Sue"; color: "purple"  }
         ListElement { name: "Mark"; color: "pink"  }
         ListElement { name: "John"; color: "gray"  }
+        */
     }
+
+   // Component.onCompleted: {
+   //     mainModel.get(0).append({name: "Dynamic"; color:});
+    //}
 
     Component {
         id: testComponent

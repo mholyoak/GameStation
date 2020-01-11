@@ -1,4 +1,5 @@
 import QtQuick 2.9
+import "."
 
 FocusScope {
     id: cardPanelId
@@ -21,7 +22,7 @@ FocusScope {
         Item {
             id: rectComponent
 
-            width: mainListId.height
+            width: mainListId.height * Style.cardWidthAspectRatio
             height: mainListId.height
             Card {
                 width: rectComponent.width - 10

@@ -8,7 +8,9 @@ Window {
     width: 640
     height: 480
     title: qsTr("Game Station")
+
     Rectangle {
+        id: backgroundId
         anchors.top: windowId.top
         height: windowId.height
         width: windowId.width
@@ -18,9 +20,16 @@ Window {
         PlayerPanel {
             id: playerPanelId
 
-            anchors.top: windowId
+            anchors.top: windowId.top
             height: windowId.height / 5
             width: windowId.width
+
+            Component.onCompleted: {
+                for (var i = 0; i < 10; i++)
+                {
+                    playerPanelId.addPlayer("TestPlayer", "TestColor");
+                }
+            }
         }
 
         Rectangle {
@@ -49,13 +58,12 @@ Window {
             color: "#00BB00"
         }
 
-        Rectangle {
+        GameTable {
             id: gameTablePanelId
 
             anchors.top: opponentCardPanelId.bottom
             height: windowId.height / 5
             width: windowId.width
-            color: "transparent"
         }
 
         Rectangle {

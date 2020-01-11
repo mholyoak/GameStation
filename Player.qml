@@ -19,17 +19,25 @@ FocusScope {
         radius: width*0.5
     }
 
-    ProgressiveCircle {
+    Rectangle {
         id: bodyId
+
         anchors.top: headId.bottom
         anchors.horizontalCenter: playerId.horizontalCenter
-        size: headId.width * 2
-        colorCircle: playerColor
-        colorBackground: "transparent"
-        showBackground: true
-        isPie: true
-        arcBegin: -90
-        arcEnd: 90
+        width: headId.width * 2
+        height: headId.width
+        clip: true
+        color: "transparent"
+
+        Rectangle {
+            id: bodyCircleId
+
+            anchors.top: bodyId.top
+            width: bodyId.width
+            height: bodyId.width
+            color: playerColor
+            radius: width*0.5
+        }
     }
 
     Text {

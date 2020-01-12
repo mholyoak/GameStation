@@ -26,7 +26,7 @@ FocusScope {
         }
 
         Rectangle {
-            id: cardBorderId
+            id: cardBorderBlackId
 
             anchors.centerIn:  cardPlayerBorderId
             width: cardPlayerBorderId.width * .9
@@ -34,13 +34,23 @@ FocusScope {
             color: "black"
         }
 
+        Rectangle {
+            id: cardBorderWhiteId
+
+            anchors.centerIn: cardBorderBlackId
+            width: cardBorderBlackId.width - 2
+            height: cardBorderBlackId.height - 2
+            color: "white"
+        }
+
+
         Image {
             id: cardImageId
 
-            anchors.centerIn: cardBorderId
-            width: cardBorderId.width - 2
-            height: cardBorderId.height - 2
-            source: "file:///" + applicationDirPath + "/../../CardBack.png"
+            anchors.centerIn: cardBorderWhiteId
+            width: cardBorderWhiteId.width - 2
+            height: cardBorderWhiteId.height - 2
+            source: "file:///" + applicationDirPath + "/../../" + cardImage
         }
     }
 }

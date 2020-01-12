@@ -4,17 +4,7 @@ import "."
 FocusScope {
     id: cardPanelId
 
-    ListModel {
-        id: mainModel
-        ListElement { name: "K"; color: "red" }
-        ListElement { name: "Q"; color: "red"  }
-        ListElement { name: "J"; color: "blue"  }
-        ListElement { name: "A"; color: "blue"  }
-        ListElement { name: "2"; color: "blue"  }
-        ListElement { name: "8"; color: "blue"  }
-        ListElement { name: "3"; color: "pink"  }
-        ListElement { name: "5"; color: "gray"  }
-    }
+    property ListModel cards
 
     Component {
         id: testComponent
@@ -30,6 +20,7 @@ FocusScope {
                 anchors.centerIn: rectComponent
                 cardName: model.name
                 cardColor: model.color
+                cardImage: model.cardImage
             }
         }
     }
@@ -44,7 +35,7 @@ FocusScope {
         clip: true
         //focus: true
         orientation: ListView.Horizontal
-        model: mainModel
+        model: cards
 
         delegate: testComponent
     }

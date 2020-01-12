@@ -27,6 +27,7 @@ FocusScope {
                 anchors.left: drawDiscardPilesId.left
                 width: cardBackgroundId.height * Style.cardWidthAspectRatio
                 height: cardBackgroundId.height
+                cardImage: "LLBack.jpg"
             }
 
             Card {
@@ -35,6 +36,7 @@ FocusScope {
                 x: drawPileCardOneId.x + 2
                 width: cardBackgroundId.height * Style.cardWidthAspectRatio
                 height: cardBackgroundId.height
+                cardImage: "LLBack.jpg"
             }
 
             Card {
@@ -43,6 +45,7 @@ FocusScope {
                 x: drawPileCardOneId.x + 4
                 width: cardBackgroundId.height * Style.cardWidthAspectRatio
                 height: cardBackgroundId.height
+                cardImage: "LLBack.jpg"
             }
 
             Card {
@@ -51,6 +54,7 @@ FocusScope {
                 x: discardPileCardThreeId.x - 4
                 width: cardBackgroundId.height * Style.cardWidthAspectRatio
                 height: cardBackgroundId.height
+                cardImage: "LLGuard.jpg"
             }
 
             Card {
@@ -59,6 +63,7 @@ FocusScope {
                 x: discardPileCardThreeId.x - 2
                 width: cardBackgroundId.height * Style.cardWidthAspectRatio
                 height: cardBackgroundId.height
+                cardImage: "LLGuard.jpg"
             }
 
             Card {
@@ -67,6 +72,7 @@ FocusScope {
                 anchors.right: drawDiscardPilesId.right
                 width: cardBackgroundId.height * Style.cardWidthAspectRatio
                 height: cardBackgroundId.height
+                cardImage: "LLPrince.jpg"
             }
         }
     }

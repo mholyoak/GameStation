@@ -21,7 +21,7 @@ Window {
             id: playerPanelId
 
             anchors.top: windowId.top
-            height: windowId.height / 5
+            height: windowId.height / 10
             width: windowId.width
 
             Component.onCompleted: {
@@ -47,6 +47,12 @@ Window {
             anchors.top: playerPanelId.bottom
             height: windowId.height / 5
             width: windowId.width
+
+            cards: ListModel {
+                                id: opponentsCardsModel
+                                ListElement { name: "K"; color: "red"; cardImage: "LLHandmaid.jpg"}
+                                ListElement { name: "J"; color: "blue"; cardImage: "LLHandmaid.jpg"}
+                            }
         }
 
         Rectangle {
@@ -81,6 +87,11 @@ Window {
             anchors.top: gameTablePanelId.bottom
             height: windowId.height / 5
             width: windowId.width
+
+            cards: ListModel {
+                                id: myCardsModel
+                                ListElement { name: "K"; color: "transparent"; cardImage: "LLHandmaid.jpg"}
+                            }
         }
 
         Rectangle {
@@ -98,6 +109,23 @@ Window {
             anchors.top: myCardPanelId.bottom
             height: windowId.height / 5
             width: windowId.width
+
+            cards: ListModel {
+                                id: myHandCardsModel
+                                ListElement { name: "K"; color: "transparent"; cardImage: "LLHelp.jpg"}
+                                ListElement { name: "K"; color: "transparent"; cardImage: "LLKing.jpg"}
+                                ListElement { name: "K"; color: "transparent"; cardImage: "LLCountess.jpg"}
+                            }
         }
+
+        Rectangle {
+            id: handStatusSepID
+
+            anchors.top: myHandCardPanelId.bottom
+            height: 1
+            width: windowId.width
+            color: "#00BB00"
+        }
+
     }
 }

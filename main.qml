@@ -1,13 +1,50 @@
 import QtQuick 2.9
 import QtQuick.Window 2.2
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
 
-Window {
+ApplicationWindow {
     id: windowId
 
+    signal dealCards()
+
     visible: true
-    width: 640
-    height: 480
+    width: 450
+    height: 800
     title: qsTr("Game Station")
+
+    header: ToolBar {
+        id: toolbarId
+
+        RowLayout {
+            anchors.fill: parent
+            Label {
+                text: "Love Letters"
+                elide: Label.ElideRight
+                horizontalAlignment: Qt.AlignHCenter
+                verticalAlignment: Qt.AlignVCenter
+                Layout.fillWidth: true
+            }
+            ToolButton {
+                id: mainMenuBtnId
+                text: qsTr("⋮")
+                onClicked: mainMenuId.open()
+            }
+        }
+
+        Menu {
+            id: mainMenuId
+            x: windowId.width - width
+            y: toolbarId.height
+            MenuItem { text: "Join Game" }
+            //MenuItem { text: "Deal Cards" }
+            Action {
+                id: copyAction
+                text: qsTr("Deal Cards")
+                onTriggered: windowId.dealCards()
+            }
+        }
+    }
 
     Rectangle {
         id: backgroundId
@@ -23,13 +60,6 @@ Window {
             anchors.top: windowId.top
             height: windowId.height / 10
             width: windowId.width
-
-            Component.onCompleted: {
-                playerPanelId.addPlayer("Dionne", "red");
-                playerPanelId.addPlayer("McKelle", "blue");
-                playerPanelId.addPlayer("Eric", "black");
-                playerPanelId.addPlayer("Karla", "white");
-            }
         }
 
         Rectangle {
@@ -47,12 +77,6 @@ Window {
             anchors.top: playerPanelId.bottom
             height: windowId.height / 5
             width: windowId.width
-
-            cards: ListModel {
-                                id: opponentsCardsModel
-                                ListElement { name: "K"; color: "red"; cardImage: "LLHandmaid.jpg"}
-                                ListElement { name: "J"; color: "blue"; cardImage: "LLHandmaid.jpg"}
-                            }
         }
 
         Rectangle {
@@ -87,11 +111,6 @@ Window {
             anchors.top: gameTablePanelId.bottom
             height: windowId.height / 5
             width: windowId.width
-
-            cards: ListModel {
-                                id: myCardsModel
-                                ListElement { name: "K"; color: "transparent"; cardImage: "LLHandmaid.jpg"}
-                            }
         }
 
         Rectangle {
@@ -109,13 +128,6 @@ Window {
             anchors.top: myCardPanelId.bottom
             height: windowId.height / 5
             width: windowId.width
-
-            cards: ListModel {
-                                id: myHandCardsModel
-                                ListElement { name: "K"; color: "transparent"; cardImage: "LLHelp.jpg"}
-                                ListElement { name: "K"; color: "transparent"; cardImage: "LLKing.jpg"}
-                                ListElement { name: "K"; color: "transparent"; cardImage: "LLCountess.jpg"}
-                            }
         }
 
         Rectangle {
@@ -126,6 +138,21 @@ Window {
             width: windowId.width
             color: "#00BB00"
         }
+    }
 
+    //Component.onCompleted: {
+    onDealCards: {
+        playerPanelId.addPlayer("Dionne", "red");
+        playerPanelId.addPlayer("McKelle", "blue");
+        playerPanelId.addPlayer("Eric", "black");
+        playerPanelId.addPlayer("Karla", "white");
+
+        opponentCardPanelId.addCard("Handmaid", "red", "LLHandmaid.jpg");
+        opponentCardPanelId.addCard("Handmaid", "black", "LLHandmaid.jpg");
+
+        myCardPanelId.addCard("Handmaid", "transparent", "LLHandmaid.jpg");
+
+        myHandCardPanelId.addCard("Help", "transparent", "LLHelp.jpg");
+        myHandCardPanelId.addCard("King", "transparent", "LLKing.jpg");
     }
 }

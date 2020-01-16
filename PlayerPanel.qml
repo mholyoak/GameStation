@@ -13,16 +13,6 @@ FocusScope {
 
     ListModel {
         id: mainModel
-        /*
-        ListElement { name: "Dionne"; color: "red" }
-        ListElement { name: "McKelle"; color: "blue"  }
-        ListElement { name: "Eric"; color: "black"  }
-        ListElement { name: "Karla"; color: "white"  }
-        ListElement { name: "Fred"; color: "green"  }
-        ListElement { name: "Sue"; color: "purple"  }
-        ListElement { name: "Mark"; color: "pink"  }
-        ListElement { name: "John"; color: "gray"  }
-        */
     }
 
    // Component.onCompleted: {

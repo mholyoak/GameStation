@@ -4,7 +4,16 @@ import "."
 FocusScope {
     id: cardPanelId
 
-    property ListModel cards
+    signal addCard(string cardName, string cardColor, string cardImage)
+
+    onAddCard: {
+        var newValue = {"name": cardName, "color": cardColor, "cardImage": cardImage};
+        cardsModelId.append(newValue);
+    }
+
+    ListModel {
+        id: cardsModelId
+    }
 
     Component {
         id: testComponent
@@ -35,7 +44,7 @@ FocusScope {
         clip: true
         //focus: true
         orientation: ListView.Horizontal
-        model: cards
+        model: cardsModelId
 
         delegate: testComponent
     }
